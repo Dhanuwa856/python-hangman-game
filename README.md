@@ -24,9 +24,9 @@ A simple **Hangman Game** built with Python! 🐍
 
 ## 🎮 How to Play
 - The game selects a random word.
-- You have 6 attempts to guess the correct word.
+- You have 3 attempts to guess the correct word.
 - Enter one letter at a time or guess the entire word.
-- If you make 6 wrong guesses, you lose!
+- If you make 3 wrong guesses, you lose!
 - If you guess the word correctly, you win! 🎉
 
 ## 🤝 Contributing

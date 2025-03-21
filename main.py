@@ -60,5 +60,6 @@ def main():
     hint_msg(word)
     get_answer(word,chances)
 
-main()
+if __name__ == "__main__":
+    main()
 
