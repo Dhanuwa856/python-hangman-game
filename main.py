@@ -63,7 +63,7 @@ def get_answer(word,chances,score):
 def main():
     word = random_word()
     hint_msg(word)
-    get_answer("cat",chances,score)
+    get_answer(word,chances,score)
 
 if __name__ == "__main__":
     main()
