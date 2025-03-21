@@ -5,6 +5,7 @@ import pandas as pd
 
 DATA_FILE = 'word_list.txt'
 chances = 3
+score = 0
 
 def random_word():
     df = pd.read_csv(DATA_FILE, header=None)
@@ -18,7 +19,7 @@ def hint_msg(word):
     print(f"The word you are looking for has {word_length} letters!")
 
 
-def get_answer(word,chances):
+def get_answer(word,chances,score):
     word_length = len(word)
     letter_list = list(word)
     guessed_letters = [word[random.randint(0,word_length - 1)] if word else []]
@@ -38,15 +39,19 @@ def get_answer(word,chances):
 
         if user_letter in letter_list:
             print(f"{user_letter} That's right!")
+            score += 10
+
             for idx,letter in enumerate(word):
                 if letter == user_letter:
                     progress[idx] = user_letter
         else:
             print(f"{user_letter} Not in the word.")
             chances -= 1
+            score -= 5
 
         if "_" not in progress:
             print("\nCongratulations! You have completed the word: ", word)
+            print(F"Your score: {score}")
             return
 
     print("\nSorry! Your attempt has expired. True word: ", word)
@@ -58,7 +63,7 @@ def get_answer(word,chances):
 def main():
     word = random_word()
     hint_msg(word)
-    get_answer(word,chances)
+    get_answer("cat",chances,score)
 
 if __name__ == "__main__":
     main()
